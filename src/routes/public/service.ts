@@ -76,6 +76,7 @@ export class PublicService {
                 objectName,
                 stringifiedData,
                 'application/json',
+                'public-read',
             );
 
             return {
@@ -165,7 +166,7 @@ export class PublicService {
 
             const hash = cryptoService.computeHash(file);
 
-            const { uri } = await storageService.uploadFile(resolvedBucket, objectName, file, mimeType);
+            const { uri } = await storageService.uploadFile(resolvedBucket, objectName, file, mimeType, 'public-read');
 
             return {
                 uri,
